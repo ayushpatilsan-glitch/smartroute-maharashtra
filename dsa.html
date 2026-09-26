@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Visualization – SmartRoute Maharashtra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="dsa">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🚌</div>
+        <div>
+          SMARTROUTE
+          <span class="sub">Maharashtra Transportation Planner</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="plan.html">Plan Route</a>
+        <a href="network.html">Pune Network</a>
+        <a href="transport.html">Transport</a>
+        <a href="dsa.html" class="active">DSA Visualization</a>
+        <a href="about.html">About Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="section-title">Data Structures Behind SmartRoute</h1>
+    <p class="section-sub">This is a Graph-Based Smart Multimodal Route Optimization System. Core DSA concepts are implemented in JavaScript and used for every route query.</p>
+
+    <div class="dsa-flow">
+      <div class="dsa-box highlight">USER</div>
+      <span class="dsa-arrow">↓</span>
+      <div class="dsa-box">Enter Source & Destination</div>
+      <span class="dsa-arrow">↓</span>
+      <div class="dsa-box highlight">Hash Table Search</div>
+      <span class="dsa-arrow">↓</span>
+      <div class="dsa-box">Build / Access Graph</div>
+      <span class="dsa-arrow">↓</span>
+      <div class="dsa-box highlight">Adjacency List</div>
+      <span class="dsa-arrow">↓</span>
+      <div class="dsa-box">Dijkstra + Min-Heap</div>
+      <span class="dsa-arrow">↓</span>
+      <div class="dsa-box">Path Reconstruction</div>
+      <span class="dsa-arrow">↓</span>
+      <div class="dsa-box highlight">Compare Metrics</div>
+      <span class="dsa-arrow">↓</span>
+      <div class="dsa-box">Display All Routes</div>
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h3>📊 Graph</h3>
+        <p><strong>Stations = Vertices</strong><br><strong>Routes = Weighted Edges</strong><br>Each edge carries mode, distance, time, fare and optional route number. Directed to model one-way constraints if needed.</p>
+      </div>
+      <div class="concept-card">
+        <h3>📋 Adjacency List</h3>
+        <p>Map&lt;stationId, List&lt;{to, edge}&gt;&gt;<br>Efficient storage of sparse transport networks. Neighbors of a station are retrieved in O(degree) time.</p>
+      </div>
+      <div class="concept-card">
+        <h3>⚡ Priority Queue (Min-Heap)</h3>
+        <p>Used inside Dijkstra to always expand the node with currently smallest cost (distance / time / fare / transfer-cost).</p>
+      </div>
+      <div class="concept-card">
+        <h3>🔍 Dijkstra’s Algorithm</h3>
+        <p>Four variants by changing the weight function:<br>• Distance<br>• Travel time<br>• Fare<br>• Transfer penalty + time</p>
+      </div>
+      <div class="concept-card">
+        <h3>🗃️ Hash Table</h3>
+        <p>Station name → id lookup and id → station object. Enables fast exact and partial search (autocomplete).</p>
+      </div>
+      <div class="concept-card">
+        <h3>↩️ Path Reconstruction</h3>
+        <p>Predecessor map stores previous node and the edge used. Walking backwards from destination rebuilds the full multimodal path.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title mt-3">Example Graph Snippet</h2>
+    <div class="card">
+      <div class="card-body">
+        <pre style="font-family:ui-monospace,monospace;font-size:0.85rem;line-height:1.7;overflow-x:auto">
+Pune Railway Station
+        |
+        | Bus (3.5 km, 15 min, ₹15)
+        ↓
+   Shivajinagar
+      /        \
+ Metro          Bus
+ (→ Civil)     (→ Deccan)
+    |
+    ↓
+Civil Court
+    |
+    | Bus (5.5 km, 20 min, ₹15)
+    ↓
+  VIT Pune
+</pre>
+        <p class="text-muted mt-1" style="font-size:0.85rem">When you search Pune Railway Station → VIT Pune, Dijkstra explores these and many other edges according to the chosen weight.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title mt-3">Key Functions</h2>
+    <div class="card">
+      <div class="card-body">
+        <ul style="margin-left:1.25rem;font-size:0.95rem">
+          <li><code>findShortestDistance()</code> — weight = distance</li>
+          <li><code>findFastestRoute()</code> — weight = time</li>
+          <li><code>findCheapestRoute()</code> — weight = fare</li>
+          <li><code>findMinimumTransferRoute()</code> — weight = transfer penalty + time</li>
+          <li><code>findAllRoutes()</code> — runs multiple Dijkstra variants + mode restrictions</li>
+          <li><code>searchStation()</code> — hash-backed partial match</li>
+          <li><code>reconstructPath()</code> — predecessor walk</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="plan.html" class="btn btn-primary">Try a Live Query</a>
+      <a href="about.html" class="btn btn-outline" style="margin-left:0.5rem">About the Project</a>
+    </div>
+  </main>
+
+    <footer class="footer">
+    <p><strong>SmartRoute Maharashtra</strong> — Academic DSA Demonstration</p>
+    <div class="footer-devs">
+      Developed by <strong>Ayush Abhijit Patil</strong>, <strong>Shreya Uddhav Patil</strong> &amp; <strong>Samruddhi Vidyanand Yadav</strong>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Project – SmartRoute Maharashtra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="about">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🚌</div>
+        <div>
+          SMARTROUTE
+          <span class="sub">Maharashtra Transportation Planner</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="plan.html">Plan Route</a>
+        <a href="network.html">Pune Network</a>
+        <a href="transport.html">Transport</a>
+        <a href="dsa.html">DSA Visualization</a>
+        <a href="about.html" class="active">About Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="about-content">
+      <h1 class="section-title">About the Project</h1>
+      <p class="section-sub">Smart Maharashtra Transportation Route Planner (SmartRoute Maharashtra)</p>
+
+      <div class="demo-badge">College Data Structures Project · Demo Dataset</div>
+
+      <!-- DEVELOPERS -->
+      <section class="developers-section">
+        <h2 class="section-title" style="margin-bottom:0.35rem">Developed By</h2>
+        <p class="section-sub" style="margin-bottom:0">The team behind SmartRoute Maharashtra</p>
+        <div class="developers-grid">
+          <div class="dev-card">
+            <div class="dev-avatar">AP</div>
+            <h3>Ayush Abhijit Patil</h3>
+            <div class="role">Developer</div>
+            <p class="desc">Core algorithms, graph engine & route optimization</p>
+          </div>
+          <div class="dev-card">
+            <div class="dev-avatar">SP</div>
+            <h3>Shreya Uddhav Patil</h3>
+            <div class="role">Developer</div>
+            <p class="desc">UI design, user experience & visualization</p>
+          </div>
+          <div class="dev-card">
+            <div class="dev-avatar">SY</div>
+            <h3>Samruddhi Vidyanand Yadav</h3>
+            <div class="role">Developer</div>
+            <p class="desc">Data modeling, testing & documentation</p>
+          </div>
+        </div>
+      </section>
+
+      <h2>Problem</h2>
+      <p>Finding a suitable public transportation route in a city like Pune requires comparing multiple factors at once: distance, travel time, fare, number of transfers and available modes (bus, metro, auto, train, etc.). Manual comparison is slow and incomplete.</p>
+
+      <h2>Solution</h2>
+      <p>A <strong>graph-based multimodal route planning system</strong> that:</p>
+      <ul>
+        <li>Models stations as vertices and transport links as weighted edges</li>
+        <li>Runs Dijkstra’s algorithm with different weight functions (distance, time, fare, transfers)</li>
+        <li>Returns <em>all</em> meaningful routes, not only a single “best” path</li>
+        <li>Lets the user compare options side-by-side and inspect step-by-step details</li>
+      </ul>
+
+      <h2>Data Structures Used</h2>
+      <ul>
+        <li><strong>Graph</strong> — overall network</li>
+        <li><strong>Adjacency List</strong> — efficient neighbor storage</li>
+        <li><strong>Hash Table (Map)</strong> — station name ↔ id lookup and autocomplete</li>
+        <li><strong>Priority Queue (Min-Heap)</strong> — Dijkstra expansion order</li>
+        <li><strong>Arrays / Lists</strong> — path storage, route lists, steps</li>
+      </ul>
+
+      <h2>Algorithms</h2>
+      <ul>
+        <li><strong>Dijkstra’s Algorithm</strong> — shortest path for non-negative weights</li>
+        <li><strong>Path Reconstruction</strong> — via predecessor map</li>
+        <li><strong>Route Comparison</strong> — multi-metric ranking and filtering</li>
+        <li><strong>Station Search</strong> — exact + partial, case-insensitive</li>
+      </ul>
+
+      <h2>Project Flow</h2>
+      <div class="flow-diagram">USER
+ ↓
+Enter Source & Destination
+ ↓
+Station Search (Hash Table)
+ ↓
+Access Graph (Adjacency List)
+ ↓
+Dijkstra + Priority Queue
+   · Shortest Distance
+   · Fastest Time
+   · Cheapest Fare
+   · Minimum Transfers
+ ↓
+Path Reconstruction
+ ↓
+Generate Multiple Routes
+ ↓
+Compare & Filter
+ ↓
+Display All Routes + Details</div>
+
+      <h2>Geographical Focus</h2>
+      <p>Primary demonstration: <strong>Pune</strong> and <strong>Pimpri-Chinchwad (PCMC)</strong> metropolitan region. Sample stations include Pune Railway Station, Swargate, Shivajinagar, Civil Court, Katraj, Hinjawadi, VIT Pune, Airport, and many more.</p>
+      <p>The data model is designed so additional Maharashtra cities (Mumbai, Nagpur, Nashik, Kolhapur, etc.) can be added later as separate subgraphs or layers.</p>
+
+      <h2>Important Notes</h2>
+      <ul>
+        <li>All distances, times and fares are <strong>sample / estimated demo values</strong>.</li>
+        <li>This is <strong>not</strong> live traffic, live bus tracking or official fare data.</li>
+        <li>Architecture separates static data from potential future live services.</li>
+      </ul>
+
+      <h2>Technology</h2>
+      <ul>
+        <li>Frontend: HTML5, CSS3, Vanilla JavaScript</li>
+        <li>No framework required — pure static site, ideal for GitHub Pages</li>
+        <li>Core algorithms cleanly separated in <code>graph.js</code></li>
+      </ul>
+
+      <div class="text-center mt-3">
+        <a href="index.html" class="btn btn-primary">Go to Home</a>
+        <a href="plan.html" class="btn btn-outline" style="margin-left:0.5rem">Plan a Route</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p><strong>SmartRoute Maharashtra</strong> — Graph-Based Smart Multimodal Route Optimization System</p>
+    <p>Data Structures Project · Pune & Maharashtra Focus</p>
+    <div class="footer-devs">
+      Developed by <strong>Ayush Abhijit Patil</strong>, <strong>Shreya Uddhav Patil</strong> &amp; <strong>Samruddhi Vidyanand Yadav</strong>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

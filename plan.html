@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan Route – SmartRoute Maharashtra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="plan">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🚌</div>
+        <div>
+          SMARTROUTE
+          <span class="sub">Maharashtra Transportation Planner</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="plan.html" class="active">Plan Route</a>
+        <a href="network.html">Pune Network</a>
+        <a href="transport.html">Transport</a>
+        <a href="dsa.html">DSA Visualization</a>
+        <a href="about.html">About Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="demo-badge">📦 Sample / Demo Data · Estimates only · Not live</div>
+
+    <div class="card mb-2">
+      <div class="card-body" style="display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center">
+        <div>
+          <div class="text-muted" style="font-size:0.75rem;font-weight:600;text-transform:uppercase">From</div>
+          <div style="font-size:1.25rem;font-weight:700" id="plan-from">Pune Railway Station</div>
+        </div>
+        <div style="font-size:1.5rem;color:var(--accent)">→</div>
+        <div>
+          <div class="text-muted" style="font-size:0.75rem;font-weight:600;text-transform:uppercase">To</div>
+          <div style="font-size:1.25rem;font-weight:700" id="plan-to">VIT Pune</div>
+        </div>
+        <a href="index.html" class="btn btn-sm btn-outline" style="margin-left:auto">Change</a>
+      </div>
+    </div>
+
+    <!-- Summary -->
+    <h2 class="section-title">Route Options Summary</h2>
+    <div class="metrics-grid" id="summary-metrics">
+      <!-- filled by JS -->
+    </div>
+
+    <!-- Filters -->
+    <div class="filters">
+      <div class="filter-group">
+        <label>Modes:</label>
+        <label class="filter-check"><input type="checkbox" value="Bus" checked> 🚌 Bus</label>
+        <label class="filter-check"><input type="checkbox" value="Metro" checked> 🚇 Metro</label>
+        <label class="filter-check"><input type="checkbox" value="Auto" checked> 🛺 Auto</label>
+        <label class="filter-check"><input type="checkbox" value="Train" checked> 🚆 Train</label>
+        <label class="filter-check"><input type="checkbox" value="Taxi" checked> 🚕 Taxi</label>
+        <label class="filter-check"><input type="checkbox" value="Walking" checked> 🚶 Walk</label>
+      </div>
+      <div class="filter-group">
+        <label>Max fare ₹</label>
+        <input type="number" id="max-fare" class="filter-input" placeholder="Any" min="0">
+      </div>
+      <div class="filter-group">
+        <label>Max time (min)</label>
+        <input type="number" id="max-time" class="filter-input" placeholder="Any" min="0">
+      </div>
+      <div class="filter-group">
+        <label>Max transfers</label>
+        <input type="number" id="max-transfers" class="filter-input" placeholder="Any" min="0">
+      </div>
+      <button class="btn btn-sm btn-primary" id="apply-filters">Apply Filters</button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="all">All Routes</button>
+      <button class="tab" data-tab="distance">Shortest Distance</button>
+      <button class="tab" data-tab="time">Fastest Route</button>
+      <button class="tab" data-tab="fare">Cheapest Route</button>
+      <button class="tab" data-tab="transfers">Minimum Transfers</button>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem">
+      <div>
+        <h3 class="section-title" style="font-size:1.15rem">All Available Routes</h3>
+        <p class="section-sub" style="margin-bottom:1rem">Multiple routes calculated via Dijkstra on different edge weights. Compare and choose.</p>
+        <div class="route-list" id="route-list"></div>
+      </div>
+
+      <div>
+        <div class="details-panel" id="route-details">
+          <div class="empty-state">
+            <div class="icon">📍</div>
+            <p>Select a route to see step-by-step details</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title mt-3">Route Comparison</h2>
+    <div id="comparison-table"></div>
+  </main>
+
+    <footer class="footer">
+    <p><strong>SmartRoute Maharashtra</strong> — Graph-Based Multimodal Route Optimization</p>
+    <p>All fares, times & distances are estimated sample values for demonstration.</p>
+    <div class="footer-devs">
+      Developed by <strong>Ayush Abhijit Patil</strong>, <strong>Shreya Uddhav Patil</strong> &amp; <strong>Samruddhi Vidyanand Yadav</strong>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

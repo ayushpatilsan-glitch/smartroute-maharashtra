@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transport Modes – SmartRoute Maharashtra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="transport">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🚌</div>
+        <div>
+          SMARTROUTE
+          <span class="sub">Maharashtra Transportation Planner</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="plan.html">Plan Route</a>
+        <a href="network.html">Pune Network</a>
+        <a href="transport.html" class="active">Transport</a>
+        <a href="dsa.html">DSA Visualization</a>
+        <a href="about.html">About Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="demo-badge">📦 Sample mode descriptions · Architecture supports live APIs later</div>
+    <h1 class="section-title">Transportation Modes</h1>
+    <p class="section-sub">SmartRoute models each mode as a type of weighted edge in the graph. Fares and times shown are estimated demo values.</p>
+
+    <div class="mode-grid">
+      <div class="mode-card">
+        <div class="icon">🚌</div>
+        <h3>Bus (PMPML / City)</h3>
+        <p>Primary public transport across Pune & PCMC. Edges store route number, stops, distance, time and fare.</p>
+        <p class="text-muted mt-1" style="font-size:0.85rem">Example: Katraj → Swargate → Pune Station · Route PMT-12</p>
+      </div>
+      <div class="mode-card">
+        <div class="icon">🚇</div>
+        <h3>Metro</h3>
+        <p>Purple & Aqua lines (sample). Fast, fixed stops. Ideal for mid-city corridors with low transfer cost.</p>
+        <p class="text-muted mt-1" style="font-size:0.85rem">Vanaz → Anand Nagar → Ideal Colony → Deccan → Civil Court</p>
+      </div>
+      <div class="mode-card">
+        <div class="icon">🛺</div>
+        <h3>Auto Rickshaw</h3>
+        <p>Door-to-door flexibility. Higher fare, often faster for short/medium trips. All values labelled estimated.</p>
+        <p class="text-muted mt-1" style="font-size:0.85rem">Katraj → Swargate · ~6.2 km · ~20 min · estimated fare</p>
+      </div>
+      <div class="mode-card">
+        <div class="icon">🚆</div>
+        <h3>Local / Regional Train</h3>
+        <p>Pune–Lonavala corridor and suburban stops (Pimpri, Chinchwad, Akurdi, Nigdi). Low fare, fixed schedule style.</p>
+      </div>
+      <div class="mode-card">
+        <div class="icon">🚕</div>
+        <h3>Taxi / Cab</h3>
+        <p>Direct point-to-point. Highest fare, lowest transfer count. Useful baseline for comparison.</p>
+      </div>
+      <div class="mode-card">
+        <div class="icon">🚶</div>
+        <h3>Walking</h3>
+        <p>Short last-mile or station-to-station links. Zero fare, higher time. Often used between metro and bus stops.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title mt-3">Metro Line (Sample Visualization)</h2>
+    <div class="card">
+      <div class="card-body" style="overflow-x:auto">
+        <div style="display:flex;align-items:center;gap:0.25rem;flex-wrap:wrap;font-size:0.9rem">
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Vanaz</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Anand Nagar</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Ideal Colony</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Nal Stop</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Garware</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Deccan</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Sambhaji Park</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">PMC</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Civil Court</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Mangalwar Peth</span>
+          <span>→</span>
+          <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Pune Station</span>
+        </div>
+        <p class="text-muted mt-2" style="font-size:0.8rem">Purple Line sample · Demo stations only</p>
+      </div>
+    </div>
+
+    <h2 class="section-title mt-3">Data Model per Connection</h2>
+    <div class="card">
+      <div class="card-body">
+        <pre style="background:#f8fafc;padding:1rem;border-radius:8px;overflow-x:auto;font-size:0.85rem">{
+  source: "Pune Railway Station",
+  destination: "Shivajinagar",
+  mode: "Bus",
+  distance: 3.5,      // km
+  time: 15,           // minutes
+  fare: 15,           // ₹ estimated
+  routeNumber: "PMT-101",
+  stops: ["Pune Railway Station", "Bund Garden", "Shivajinagar"]
+}</pre>
+        <p class="text-muted mt-1" style="font-size:0.85rem">Stored as directed edges in an adjacency list. Easy to swap static JSON for a live transportService / fareService later.</p>
+      </div>
+    </div>
+  </main>
+
+    <footer class="footer">
+    <p><strong>SmartRoute Maharashtra</strong> — Multimodal Transport Model</p>
+    <div class="footer-devs">
+      Developed by <strong>Ayush Abhijit Patil</strong>, <strong>Shreya Uddhav Patil</strong> &amp; <strong>Samruddhi Vidyanand Yadav</strong>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

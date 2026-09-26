@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pune Network – SmartRoute Maharashtra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="network">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🚌</div>
+        <div>
+          SMARTROUTE
+          <span class="sub">Maharashtra Transportation Planner</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="plan.html">Plan Route</a>
+        <a href="network.html" class="active">Pune Network</a>
+        <a href="transport.html">Transport</a>
+        <a href="dsa.html">DSA Visualization</a>
+        <a href="about.html">About Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="demo-badge">📦 Interactive station graph from sample dataset</div>
+    <h1 class="section-title">Pune Transport Network</h1>
+    <p class="section-sub">Click any station to view connected routes, modes, distance, time and estimated fare. Nodes represent vertices; edges are multimodal connections.</p>
+
+    <div style="display:grid;grid-template-columns:1fr;gap:1.5rem">
+      <div>
+        <div class="network-grid" id="network-grid">
+          <!-- filled by JS -->
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">Station Details</div>
+        <div class="card-body" id="station-detail">
+          <p class="text-muted">Click a station above to explore its connections.</p>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="section-title mt-3">Legend</h2>
+    <div class="flex gap-2 flex-wrap mt-1">
+      <span class="mode-pill" style="background:#dbeafe;color:#2563eb">Major Hub</span>
+      <span class="mode-pill" style="background:#f5f3ff;color:#7c3aed">Metro Station</span>
+      <span class="mode-pill">Hub / Landmark</span>
+    </div>
+    <p class="text-muted mt-2" style="font-size:0.85rem">
+      🚌 Bus · 🚇 Metro · 🛺 Auto · 🚆 Train · 🚕 Taxi · 🚶 Walking — all represented as weighted edges in the adjacency list.
+    </p>
+  </main>
+
+    <footer class="footer">
+    <p><strong>SmartRoute Maharashtra</strong> — Adjacency List Visualization of Pune Network</p>
+    <div class="footer-devs">
+      Developed by <strong>Ayush Abhijit Patil</strong>, <strong>Shreya Uddhav Patil</strong> &amp; <strong>Samruddhi Vidyanand Yadav</strong>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

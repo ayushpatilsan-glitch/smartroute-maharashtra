@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartRoute Maharashtra – Transportation Route Planner</title>
+  <meta name="description" content="Graph-based multimodal route planner for Pune & Maharashtra. Compare distance, time, fare & transfers. College DSA project demo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">🚌</div>
+        <div>
+          SMARTROUTE
+          <span class="sub">Maharashtra Transportation Planner</span>
+        </div>
+      </a>
+      <button class="menu-toggle" aria-label="Menu">☰</button>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="plan.html">Plan Route</a>
+        <a href="network.html">Pune Network</a>
+        <a href="transport.html">Transport</a>
+        <a href="dsa.html">DSA Visualization</a>
+        <a href="about.html">About Project</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Plan Your Journey Across Maharashtra</h1>
+      <p class="subtitle">Compare routes, transportation modes, distance, time and fare in one place — powered by graph algorithms.</p>
+
+      <div class="search-card">
+        <div class="demo-badge">📦 Sample / Demo Data · Not Live Traffic</div>
+        <div class="search-row">
+          <div class="search-field">
+            <label>From</label>
+            <input type="text" id="from-input" placeholder="Search starting location" autocomplete="off" value="Pune Railway Station">
+          </div>
+          <button class="swap-btn" id="swap-btn" title="Swap">⇄</button>
+          <div class="search-field">
+            <label>To</label>
+            <input type="text" id="to-input" placeholder="Search destination" autocomplete="off" value="VIT Pune">
+          </div>
+          <button class="btn btn-primary" id="find-btn">Find Routes</button>
+        </div>
+        <div class="quick-locs">
+          <span class="text-muted" style="font-size:0.8rem;align-self:center">Quick:</span>
+          <button class="quick-chip" data-loc="Pune Railway Station">Pune Railway Station</button>
+          <button class="quick-chip" data-loc="Swargate">Swargate</button>
+          <button class="quick-chip" data-loc="Shivajinagar">Shivajinagar</button>
+          <button class="quick-chip" data-loc="VIT Pune">VIT Pune</button>
+          <button class="quick-chip" data-loc="PCMC">PCMC</button>
+          <button class="quick-chip" data-loc="Katraj">Katraj</button>
+          <button class="quick-chip" data-loc="Hinjawadi">Hinjawadi</button>
+          <button class="quick-chip" data-loc="Pune Airport">Airport</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <h2 class="section-title">Why SmartRoute?</h2>
+    <p class="section-sub">A graph-based multimodal route optimization system for Pune & Maharashtra public transport.</p>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <h3>🗺️ Multimodal Routes</h3>
+        <p>Bus, Metro, Auto, Train, Taxi & Walking combined. See every viable path, not just one “best” answer.</p>
+      </div>
+      <div class="concept-card">
+        <h3>⚡ Dijkstra’s Algorithm</h3>
+        <p>Shortest distance, fastest time, cheapest fare and minimum transfers — all computed with priority queues.</p>
+      </div>
+      <div class="concept-card">
+        <h3>📊 Compare Everything</h3>
+        <p>Distance, time, fare, transfers and modes side-by-side so you can choose what matters most.</p>
+      </div>
+      <div class="concept-card">
+        <h3>🎓 Built for Learning</h3>
+        <p>Graph, Adjacency List, Hash Table, Min-Heap and path reconstruction clearly implemented and visualized.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title mt-3">Focus Area: Pune Metropolitan Region</h2>
+    <p class="section-sub">Primary demo covers Pune, Pimpri-Chinchwad and surrounding hubs. Architecture supports expanding to Mumbai, Nagpur, Nashik and more.</p>
+
+    <div class="network-grid" style="margin-top:1rem">
+      <div class="station-node major"><div class="name">Pune Railway Station</div><div class="area">Major Hub</div></div>
+      <div class="station-node major"><div class="name">Swargate</div><div class="area">Major Hub</div></div>
+      <div class="station-node metro"><div class="name">Civil Court</div><div class="area">Metro</div></div>
+      <div class="station-node"><div class="name">Hinjawadi</div><div class="area">IT Hub</div></div>
+      <div class="station-node"><div class="name">Katraj</div><div class="area">South Pune</div></div>
+      <div class="station-node major"><div class="name">PCMC</div><div class="area">PCMC</div></div>
+      <div class="station-node"><div class="name">VIT Pune</div><div class="area">Landmark</div></div>
+      <div class="station-node"><div class="name">Pune Airport</div><div class="area">Airport</div></div>
+    </div>
+
+    <div class="text-center mt-3">
+      <a href="plan.html" class="btn btn-primary">Start Planning a Route</a>
+      <a href="dsa.html" class="btn btn-outline" style="margin-left:0.5rem">See DSA Concepts</a>
+    </div>
+
+    <section class="developers-section">
+      <h2 class="section-title">Developed By</h2>
+      <p class="section-sub">College Data Structures project team</p>
+      <div class="developers-grid">
+        <div class="dev-card">
+          <div class="dev-avatar">AP</div>
+          <h3>Ayush Abhijit Patil</h3>
+          <div class="role">Developer</div>
+          <p class="desc">Core algorithms, graph engine &amp; route optimization</p>
+        </div>
+        <div class="dev-card">
+          <div class="dev-avatar">SP</div>
+          <h3>Shreya Uddhav Patil</h3>
+          <div class="role">Developer</div>
+          <p class="desc">UI design, user experience &amp; visualization</p>
+        </div>
+        <div class="dev-card">
+          <div class="dev-avatar">SY</div>
+          <h3>Samruddhi Vidyanand Yadav</h3>
+          <div class="role">Developer</div>
+          <p class="desc">Data modeling, testing &amp; documentation</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>SmartRoute Maharashtra</strong> — College Data Structures Project</p>
+    <p>Graph · Adjacency List · Dijkstra · Priority Queue · Hash Table · Path Reconstruction</p>
+    <p class="mt-1">Demo data only · Not affiliated with PMPML / Pune Metro</p>
+    <div class="footer-devs">
+      Developed by <strong>Ayush Abhijit Patil</strong>, <strong>Shreya Uddhav Patil</strong> &amp; <strong>Samruddhi Vidyanand Yadav</strong>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/graph.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
